@@ -1,0 +1,36 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    //Declara tela e pincel
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    //Declara função Desenha Circulo
+    function desenhaCirculo(x, y, raio) {
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    //Declara função limpa tela
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    var x = 20; //declara valor de x para a função Atualiza Tela
+
+    //Declara função Atualiza Tela
+    function atualizaTela() {
+        limpaTela();
+        desenhaCirculo(x, 20, 10);
+        x++;
+    }
+
+    //Temporiza em quantos ms a função atualiza tela é chamada
+    setInterval(atualizaTela, 10);
+
+</script>
